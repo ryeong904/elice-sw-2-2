@@ -44,21 +44,23 @@
                 document.querySelector('body').style.backgroundColor = 'black';
                 document.querySelector('body').style.color = 'white';
                 this.value = 'day';
+
+                let temp = document.querySelectorAll('a');
+                for(let i = 0; i<temp.length; i++){
+                    temp[i].style.color = 'white';
+                }
             }else{
                 document.querySelector('body').style.backgroundColor = 'white';
                 document.querySelector('body').style.color = 'black';
                 this.value = 'night';
+
+                let temp = document.querySelectorAll('a');
+                for(let i = 0; i<temp.length; i++){
+                    temp[i].style.color = 'black';
+                }
             }
         "
         >
-<!-- 
-        <input type="button" value="day" 
-        onclick="
-            document.querySelector('body').style.backgroundColor = 'white';
-            document.querySelector('body').style.color = 'black';
-        "
-        >
-         -->
         <h1><a href="index.html">ryeong's web site</a></h1>
         
         <div id="container">
@@ -73,7 +75,12 @@
                 Hello, WEB !!!
             </div>
         </div>
-
+        <script>
+            let temp = document.querySelectorAll('a');
+            for(let i = 0; i<temp.length; i++){
+                console.log(temp[i]);
+            }
+        </script>
         <div id="disqus_thread"></div>
         <script>
             /**
@@ -94,5 +101,7 @@
         </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
+
+
     </body>
 </html>
