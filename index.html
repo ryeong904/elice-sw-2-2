@@ -38,26 +38,35 @@
     </head>
     
     <body>
-        <input type="button" value="night" 
-        onclick="
-            if(this.value == 'night'){
+        <script>
+            function night(){
                 document.querySelector('body').style.backgroundColor = 'black';
                 document.querySelector('body').style.color = 'white';
-                this.value = 'day';
 
                 let temp = document.querySelectorAll('a');
                 for(let i = 0; i<temp.length; i++){
                     temp[i].style.color = 'white';
                 }
-            }else{
+            }
+
+            function day(){
                 document.querySelector('body').style.backgroundColor = 'white';
                 document.querySelector('body').style.color = 'black';
-                this.value = 'night';
 
                 let temp = document.querySelectorAll('a');
                 for(let i = 0; i<temp.length; i++){
                     temp[i].style.color = 'black';
                 }
+            }
+        </script>
+        <input type="button" value="night" 
+        onclick="
+            if(this.value == 'night'){
+                night();
+                this.value = 'day';
+            }else{
+                day();
+                this.value = 'night';
             }
         "
         >
