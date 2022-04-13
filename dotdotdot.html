@@ -1,0 +1,31 @@
+<html>
+    <body>
+        JavaScript is 
+        <span 
+            style="
+                background-color: rgb(191, 191, 191);
+                padding: 0 10px;
+                cursor: pointer;
+            " 
+            onclick="
+                document.querySelector('#phara').style.display='inline';
+                this.style.display='none';
+        ">...</span> 
+        <span id="phara" style="display: none;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed nam necessitatibus et! Quaerat, dolorum illum dolorem fuga in et natus nisi tempore aspernatur. Reprehenderit eligendi dolorem omnis nesciunt voluptate nobis?</span>
+
+        <hr>
+        JavaScript is 
+        <span 
+            style="
+                background-color: rgb(191, 191, 191);
+                padding: 0 10px;
+                cursor: pointer;
+            " 
+            onclick="
+                this.style.display='none';
+                document.querySelector('#content').innerHTML = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed nam necessitatibus et! Quaerat, dolorum illum dolorem fuga in et natus nisi tempore aspernatur. Reprehenderit eligendi dolorem omnis nesciunt voluptate nobis?';
+        ">...</span> 
+        <span id="content""></span>
+
+    </body>
+</html>
