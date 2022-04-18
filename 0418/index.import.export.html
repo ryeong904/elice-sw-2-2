@@ -37,9 +37,8 @@
 
         </style>
         <script type="module">
-            import {dayNight, day} from './daynight.js';
+            import {dayNight} from './daynight.js';
             function listener(event){
-                console.log(10);
                 if(event.target.value === 'night'){
                     dayNight('night');
                     event.target.value = 'day';
@@ -50,6 +49,7 @@
             }
             document.querySelector('#daynightBtn').addEventListener('click', listener);
         </script>
+
     </head>
     
     <body>
@@ -91,5 +91,5 @@
     
 
     </body>
-    <script src="daynight.js"></script>
+    <!-- <script src="daynight.js"></script> -->
 </html>

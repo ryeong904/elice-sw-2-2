@@ -18,7 +18,7 @@ function day(){
 }
 
 export function dayNight(mode){
-    if(mode == 'night'){
+    if(mode === 'night'){
         night();
     }else{
         day();
