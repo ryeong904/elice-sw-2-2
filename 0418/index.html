@@ -39,29 +39,7 @@
     </head>
     
     <body>
-        <script>
-            function night(){
-                // document.querySelector('body').style.backgroundColor = 'black';
-                $('body').css('background', 'black').css('color', 'white');
-                // document.querySelector('body').style.color = 'white';
-                // $('body').css('color', 'white');
-                // let temp = document.querySelectorAll('a');
-                // for(let i = 0; i<temp.length; i++){
-                //     temp[i].style.color = 'white';
-                // }
-                $('a').css('color','white');
-            }
 
-            function day(){
-                document.querySelector('body').style.backgroundColor = 'white';
-                document.querySelector('body').style.color = 'black';
-
-                let temp = document.querySelectorAll('a');
-                for(let i = 0; i<temp.length; i++){
-                    temp[i].style.color = 'black';
-                }
-            }
-        </script>
         <input type="button" value="night" 
         onclick="
             if(this.value == 'night'){
@@ -114,6 +92,6 @@
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
 
-
     </body>
+    <script src="daynight.js"></script>
 </html>
