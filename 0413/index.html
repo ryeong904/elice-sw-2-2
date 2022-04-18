@@ -1,16 +1,15 @@
 <!doctype html>
 <html>
     <head>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DTFNW4HB5T"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DTFNW4HB5T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', 'G-DTFNW4HB5T');
-    </script>
+  gtag('config', 'G-DTFNW4HB5T');
+</script>
         <title>WEB - Welcome</title>
         <meta charset="utf-8">
         <style>
@@ -39,15 +38,26 @@
     </head>
     
     <body>
-
         <input type="button" value="night" 
         onclick="
             if(this.value == 'night'){
-                night();
+                document.querySelector('body').style.backgroundColor = 'black';
+                document.querySelector('body').style.color = 'white';
                 this.value = 'day';
+
+                let temp = document.querySelectorAll('a');
+                for(let i = 0; i<temp.length; i++){
+                    temp[i].style.color = 'white';
+                }
             }else{
-                day();
+                document.querySelector('body').style.backgroundColor = 'white';
+                document.querySelector('body').style.color = 'black';
                 this.value = 'night';
+
+                let temp = document.querySelectorAll('a');
+                for(let i = 0; i<temp.length; i++){
+                    temp[i].style.color = 'black';
+                }
             }
         "
         >
@@ -62,7 +72,7 @@
             
             <div>
                 <h2>Welcome</h2>
-                Hello, WEB !!! :D
+                Hello, WEB !!!
             </div>
         </div>
         <script>
@@ -92,6 +102,6 @@
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
 
+
     </body>
-    <script src="daynight.js"></script>
 </html>

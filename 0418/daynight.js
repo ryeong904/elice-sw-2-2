@@ -16,3 +16,11 @@ function day(){
         temp[i].style.color = 'black';
     }
 }
+
+export function dayNight(mode){
+    if(mode == 'night'){
+        night();
+    }else{
+        day();
+    }
+}
