@@ -3,7 +3,8 @@
         <header>
             <h1><a href="index.html" onclick="
                 event.preventDefault();
-                welcome();">WEB</a></h1>
+                welcome();
+                ">WEB</a></h1>
         </header>
         <nav>
             <ol>
@@ -44,6 +45,8 @@
             }
             function welcome() {
                 document.querySelector('article').innerHTML = `<h2>Welcome</h2>Hello, WEB!`;
+                selectedId = null;
+                control();
             }
             function read(){
                 //3. id와 일치하는 topics의 원소를 찾아낸다.
@@ -52,11 +55,27 @@
                 const content = `<h2>${topic.title}</h2>${topic.body}`
                 //5. 본문을 출력한다.
                 document.querySelector('article').innerHTML = content;
+                control();
             }
             function creat(){}
             function update(){}
             function remove(){}
-            function control(){}
+
+            function control(){
+                let contextUI = ''
+                if (selectedId !== null){
+                    contextUI = `
+                        <li><a href="/update">Update</a></li>
+                        <li><a href="/delete">Delete</a></li>
+                    `;
+                }
+                console.log(selectedId);
+
+                document.querySelector('#control').innerHTML = `
+                    <li><a href="/creat">Creat</a></li>
+                    ${contextUI}
+                `;
+            }
         
             nav();
             welcome();
