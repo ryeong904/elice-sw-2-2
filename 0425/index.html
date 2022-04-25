@@ -86,12 +86,22 @@
                 e.preventDefault();
                 const t = e.target.title.value;
                 const b = e.target.body.value;
-                const newTopic = {id:nextId, title:t, body:b};
-                topics.push(newTopic);
-                selectedId = nextId;
-                nextId += 1;
-                nav();
-                read();
+
+                fetch('http://localhost:3000/topics', {
+                    method:'POST',
+                    headers: {
+                    'Content-Type': 'application/json', //json 보낼게 json으로 파싱점
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body:JSON.stringify({title:t, body:b})
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        selectedId = data.id;
+                        nav();
+                        read();
+                    })
             }
             function create(){
                 const content = `
