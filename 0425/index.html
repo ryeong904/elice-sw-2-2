@@ -37,9 +37,9 @@
                 read();
             }
             function nav() {
-                fetch('http://localhost:3000/topics')
+                fetch('http://localhost:3000/topics') //서버와 통신 
                     .then(response => response.json())
-                    .then(topics =>{
+                    .then(topics =>{ //모든 작업이 끝나고 호출됨
                         const tag = topics.map((e) => `
                             <li>
                                 <a href="/read/${e.id}" id="${e.id}" onclick="navHandler(event);">
@@ -48,6 +48,8 @@
                             </li>`).join('');
                         document.querySelector('nav>ol').innerHTML = tag;
                     })
+                    //fetch가 끝나고 바로 시작
+                    document.querySelector('nav>ol').innerHTML = 'Loading...'
                 // const tag = topics.map((e) => `
                 //     <li>
                 //         <a href="/read/${e.id}" id="${e.id}" onclick="navHandler(event);">
@@ -62,13 +64,23 @@
                 control();
             }
             function read(){
-                //3. id와 일치하는 topics의 원소를 찾아낸다.
-                const topic = topics.filter(e=> e.id === selectedId)[0];
-                //4. 본문을 만든다.
-                const content = `<h2>${topic.title}</h2>${topic.body}`
-                //5. 본문을 출력한다.
-                document.querySelector('article').innerHTML = content;
-                control();
+                fetch('http://localhost:3000/topics/'+selectedId) //서버와 통신 
+                    .then(response => response.json())
+                    .then(topic =>{ //모든 작업이 끝나고 호출됨
+                        //3. id와 일치하는 topics의 원소를 찾아낸다.
+                        //4. 본문을 만든다.
+                        const content = `<h2>${topic.title}</h2>${topic.body}`
+                        //5. 본문을 출력한다.
+                        document.querySelector('article').innerHTML = content;
+                        control();
+                    })
+                // //3. id와 일치하는 topics의 원소를 찾아낸다.
+                // const topic = topics.filter(e=> e.id === selectedId)[0];
+                // //4. 본문을 만든다.
+                // const content = `<h2>${topic.title}</h2>${topic.body}`
+                // //5. 본문을 출력한다.
+                // document.querySelector('article').innerHTML = content;
+                // control();
             }
             function createHandler(e){
                 e.preventDefault();
